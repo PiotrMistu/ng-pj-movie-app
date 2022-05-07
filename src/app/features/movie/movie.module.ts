@@ -8,6 +8,7 @@ import { MoviesService } from './services/movies.service';
 import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieDetailsContainerComponent } from './containers/movie-details-container/movie-details-container.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     MoviesService,

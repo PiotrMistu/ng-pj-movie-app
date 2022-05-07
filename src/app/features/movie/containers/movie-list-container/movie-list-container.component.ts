@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../../models/interfaces/movies-list.interface';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-movie-list-container',
@@ -14,8 +15,6 @@ export class MovieListContainerComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   clickedRows = new Set<Movie>();
 
-
-
   constructor(public moviesService: MoviesService,
               private router: Router) {
   }
@@ -27,6 +26,7 @@ export class MovieListContainerComponent implements OnInit {
   public selectedList(row: Movie): void {
     this.router.navigate(['movies', 'movie', row.imdbID]);
   }
+
 }
 
 export interface PeriodicElement {
