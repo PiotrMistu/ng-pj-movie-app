@@ -10,8 +10,8 @@ export class MovieRepoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getMovies(): Observable<Movies> {
-    const url = 'https://www.omdbapi.com/?s=Arcane';
+  public getMovies(page: number): Observable<Movies> {
+    const url = `https://www.omdbapi.com/?page=${page ?? 1}&s=Batman`;
     return this.httpClient.get<Movies>(url);
   }
 

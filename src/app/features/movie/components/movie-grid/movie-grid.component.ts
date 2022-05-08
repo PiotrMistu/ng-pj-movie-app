@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class MovieGridComponent implements OnInit {
   @Input() public movies: Observable<Movies | null | undefined> | undefined;
   @Output() public rowSelect = new EventEmitter();
+  @Output() public previous = new EventEmitter();
+  @Output() public next = new EventEmitter();
 
   displayedColumns: string[] = ['Title', 'Type', 'Year'];
   clickedRows = new Set<Movie>();
@@ -22,5 +24,13 @@ export class MovieGridComponent implements OnInit {
 
   public rowSelectClicked(item: Movie): void {
     this.rowSelect.emit(item);
+  }
+
+  public clickPrevious(): void {
+    this.previous.emit();
+  }
+
+  public clickNext(): void {
+    this.next.emit();
   }
 }

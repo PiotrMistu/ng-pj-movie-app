@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-movie-details-container',
   templateUrl: './movie-details-container.component.html',
-  styleUrls: ['./movie-details-container.component.scss']
+  styleUrls: ['./movie-details-container.component.scss'],
+  providers: [MovieDetailsService]
 })
 export class MovieDetailsContainerComponent implements OnInit {
 

@@ -33,9 +33,21 @@
         *matRowDef="let row; columns: displayedColumns;"
       ></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                   showFirstLastButtons
-                   aria-label="Select page of periodic elements">
-    </mat-paginator>
   </div>
+  <nav aria-label="Page navigation example" class="flex justify-center">
+    <ul class="inline-flex -space-x-px">
+      <li>
+        <a
+          (click)="clickPrevious()"
+          class="cursor-pointer py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <</a>
+      </li>
+      <li>
+        <a
+          (click)="clickNext()"
+          class="cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          ></a>
+      </li>
+    </ul>
+  </nav>
 </ng-container>

@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie-list-container.component.scss']
 })
 export class MovieListContainerComponent implements OnInit {
-  public data: any;
 
   constructor(public moviesService: MoviesService,
               private router: Router) {
@@ -21,5 +20,13 @@ export class MovieListContainerComponent implements OnInit {
 
   public selectedRowHandler(row: Movie): void {
     this.router.navigate(['movies', 'movie', row.imdbID]);
+  }
+
+  public previousHandler(): void {
+    this.moviesService.getPages(false);
+  }
+
+  public nextHandler(): void {
+    this.moviesService.getPages(true);
   }
 }

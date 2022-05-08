@@ -21,7 +21,9 @@ export class LastWatchedService {
   }
 
   public lastWatchedAdd(item: LastWatchedModel): void {
-    this.lastWatched.push(item);
+    if (!this.checkIsExist(item)) {
+      this.lastWatched.push(item);
+    }
     localStorage.setItem('lastWatched', JSON.stringify(this.getLastThree()));
     this.lastWatchedSubject$.next(this.getLastThree());
   }
@@ -32,5 +34,10 @@ export class LastWatchedService {
       return this.lastWatched;
     }
     return this.lastWatched;
+  }
+
+  public checkIsExist(item: LastWatchedModel): boolean {
+    const isExist = this.lastWatched.some(i => i.id === item.id);
+    return isExist;
   }
 }

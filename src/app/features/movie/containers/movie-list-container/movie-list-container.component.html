@@ -1,5 +1,7 @@
 <app-movie-grid
   [movies]="moviesService.movies$"
   (rowSelect)="selectedRowHandler($event)"
+  (next)="nextHandler()"
+  (previous)="previousHandler()"
 >
 </app-movie-grid>
