@@ -25,8 +25,8 @@ widok szczegółów filmu
 Dodatkowe funkcjonalności (w miarę możliwości zrób przynajmniej jedną):
 
  - możliwość zdefiniowania roku oraz typu filmu 
- - paginacja 
- - opcjonalnie na stronie szczegółów filmu box z ostatnio przeglądanymi filmami 
+ - paginacja [Done TODO: current page, current page in URL]
+ - opcjonalnie na stronie szczegółów filmu box z ostatnio przeglądanymi filmami  [Done]
 
 Aplikacja powinna być responsywna. Będziemy zwracać uwagę na dobór narzędzi i sposób ich wykorzystania, czytelny oraz uporządkowany
 kod. Mile widziane testy.

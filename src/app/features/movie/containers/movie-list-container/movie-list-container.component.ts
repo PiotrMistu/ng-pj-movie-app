@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-movie-list-container',
   templateUrl: './movie-list-container.component.html',
-  styleUrls: ['./movie-list-container.component.scss']
+  styleUrls: ['./movie-list-container.component.scss'],
+  providers: [MoviesService]
 })
 export class MovieListContainerComponent implements OnInit {
 
@@ -28,5 +29,9 @@ export class MovieListContainerComponent implements OnInit {
 
   public nextHandler(): void {
     this.moviesService.getPages(true);
+  }
+
+  public cleanHandler(): void {
+    this.moviesService.formGroup.reset();
   }
 }

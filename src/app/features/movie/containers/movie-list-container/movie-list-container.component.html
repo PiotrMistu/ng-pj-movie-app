@@ -1,3 +1,10 @@
+<div>
+  <app-filters
+    [data]="moviesService.types$"
+    [formGroup]="moviesService.formGroup"
+    (clean)="cleanHandler()"
+  ></app-filters>
+</div>
 <app-movie-grid
   [movies]="moviesService.movies$"
   (rowSelect)="selectedRowHandler($event)"

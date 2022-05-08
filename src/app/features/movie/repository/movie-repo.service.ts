@@ -15,6 +15,16 @@ export class MovieRepoService {
     return this.httpClient.get<Movies>(url);
   }
 
+  public getMoviesType(page: number, type: string, year?: string): Observable<Movies> {
+    let url = '';
+    if(year){
+       url = `https://www.omdbapi.com/?page=${page ?? 1}&s=Batman&type=${type}&y=${year}`;
+    }else {
+       url = `https://www.omdbapi.com/?page=${page ?? 1}&s=Batman&type=${type}`;
+    }
+    return this.httpClient.get<Movies>(url);
+  }
+
   public getMovie(movieID: string): Observable<MovieDetailsInterface> {
     const url = `https://www.omdbapi.com/?i=${movieID}`;
     return this.httpClient.get<MovieDetailsInterface>(url);

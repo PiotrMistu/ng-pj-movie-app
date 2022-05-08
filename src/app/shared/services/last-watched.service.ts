@@ -14,7 +14,6 @@ export class LastWatchedService {
   }
 
   public load(): void {
-    console.log('load');
     // @ts-ignore
     this.lastWatched = JSON.parse(localStorage.getItem('lastWatched')) ?? [];
     this.lastWatchedSubject$.next(this.lastWatched ?? []);
