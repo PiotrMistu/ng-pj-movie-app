@@ -13,7 +13,6 @@ export class MoviesService {
 
   public init(): void {
     this.moviesRepo.getMovies().subscribe(r => {
-      console.log(r);
       this.moviesSubject$.next(r);
     });
   }

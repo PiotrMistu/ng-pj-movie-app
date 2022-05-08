@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MovieDetailsInterface } from '../../../models/interfaces/movie-details.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-details',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Input() public movieDetails$: Observable<MovieDetailsInterface | null | undefined> | undefined;
+  @Output() public backEmitter = new EventEmitter();
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  public backToListClicked(): void {
+    this.backEmitter.emit(null);
+  }
 }

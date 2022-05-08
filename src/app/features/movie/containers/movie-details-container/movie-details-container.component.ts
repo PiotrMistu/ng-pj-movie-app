@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieDetailsService } from '../../services/movie-details.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-details-container',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public movieDetailsService: MovieDetailsService,
+    public activeRouter: ActivatedRoute,
+    private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.activeRouter.params.subscribe((p) => {
+      console.log(p);
+      this.movieDetailsService.init(p['id']);
+    })
+  }
+
+  public backToListHandler(): void {
+    this.router.navigate(['movies']);
   }
 
 }

@@ -9,6 +9,9 @@ import { MovieGridComponent } from './components/movie-grid/movie-grid.component
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieDetailsContainerComponent } from './containers/movie-details-container/movie-details-container.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MovieDetailsService } from './services/movie-details.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -32,11 +35,14 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    SharedModule
   ],
   providers: [
     MoviesService,
-    MovieRepoService
+    MovieRepoService,
+    MovieDetailsService
   ]
 })
 export class MovieModule {

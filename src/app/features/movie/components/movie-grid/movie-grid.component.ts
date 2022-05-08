@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Movie, Movies } from '../../../models/interfaces/movies-list.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-grid',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-grid.component.scss']
 })
 export class MovieGridComponent implements OnInit {
+  @Input() public movies: Observable<Movies | null | undefined> | undefined;
+  @Output() public rowSelect = new EventEmitter();
 
-  constructor() { }
+  displayedColumns: string[] = ['Title', 'Type', 'Year'];
+  clickedRows = new Set<Movie>();
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  public rowSelectClicked(item: Movie): void {
+    this.rowSelect.emit(item);
+  }
 }

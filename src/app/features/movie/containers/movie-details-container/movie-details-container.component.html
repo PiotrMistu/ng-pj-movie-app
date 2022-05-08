@@ -1,1 +1,7 @@
-<p>movie-details-container works!</p>
+<app-movie-details
+  [movieDetails$]="movieDetailsService.movie$"
+  (backEmitter)="backToListHandler()"
+>
+</app-movie-details>
+
+<app-last-watched></app-last-watched>
