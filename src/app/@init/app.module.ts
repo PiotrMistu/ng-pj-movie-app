@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from '../shared/services/auth-interceptor.service';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { LastWatchedService } from '../shared/services/last-watched.service';
 
 const routes: Routes = [
   {
@@ -41,6 +42,12 @@ const routes: Routes = [
       useExisting: AuthInterceptorService,
       multi: true
     },
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [LastWatchedService],
+      useFactory: (s: LastWatchedService) => () => s.load(),
+    }
   ],
   bootstrap: [AppComponent]
 })

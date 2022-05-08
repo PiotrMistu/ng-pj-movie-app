@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MovieRepoService } from '../../repository/movie-repo.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../../models/interfaces/movies-list.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list-container',
@@ -7,16 +9,24 @@ import { MovieRepoService } from '../../repository/movie-repo.service';
   styleUrls: ['./movie-list-container.component.scss']
 })
 export class MovieListContainerComponent implements OnInit {
-  public data: any;
 
-  constructor(private movieRepoService: MovieRepoService) {
+  constructor(public moviesService: MoviesService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.movieRepoService.getMovies().subscribe(r => {
-      console.log(r);
-      this.data = r;
-    });
+    this.moviesService.init();
   }
 
+  public selectedRowHandler(row: Movie): void {
+    this.router.navigate(['movies', 'movie', row.imdbID]);
+  }
+
+  public previousHandler(): void {
+    this.moviesService.getPages(false);
+  }
+
+  public nextHandler(): void {
+    this.moviesService.getPages(true);
+  }
 }
