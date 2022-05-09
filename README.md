@@ -38,7 +38,7 @@ main page with search engine and list of results
 movie details view
 Additional functionalities (if possible do at least one):
 
-- possibility to define year and movie type
+- possibility to define year and movie type [DONE]
 - pagination [DONE TODO: current page, current page in URL]
 - optionally on the movie details page a box with recently viewed movies [DONE].
 
