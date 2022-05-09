@@ -12,6 +12,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MovieDetailsService } from './services/movie-details.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from '../../shared/shared.module';
+import { FiltersComponent } from './components/filters/filters.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   {
@@ -29,7 +35,8 @@ const routes: Routes = [
     MovieListContainerComponent,
     MovieGridComponent,
     MovieDetailsComponent,
-    MovieDetailsContainerComponent
+    MovieDetailsContainerComponent,
+    FiltersComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +44,12 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [
     MoviesService,

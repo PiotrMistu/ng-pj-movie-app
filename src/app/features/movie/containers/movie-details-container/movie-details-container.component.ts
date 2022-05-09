@@ -18,7 +18,6 @@ export class MovieDetailsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouter.params.subscribe((p) => {
-      console.log(p);
       this.movieDetailsService.init(p['id']);
     })
   }

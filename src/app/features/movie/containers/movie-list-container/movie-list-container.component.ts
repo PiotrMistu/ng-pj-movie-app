@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../../models/interfaces/movies-list.interface';
 import { Router } from '@angular/router';
@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-movie-list-container',
   templateUrl: './movie-list-container.component.html',
-  styleUrls: ['./movie-list-container.component.scss']
+  styleUrls: ['./movie-list-container.component.scss'],
+  providers: [MoviesService]
 })
 export class MovieListContainerComponent implements OnInit {
 
@@ -28,5 +29,9 @@ export class MovieListContainerComponent implements OnInit {
 
   public nextHandler(): void {
     this.moviesService.getPages(true);
+  }
+
+  public cleanHandler(): void {
+    this.moviesService.resetFilters();
   }
 }

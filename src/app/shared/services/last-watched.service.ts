@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, take } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { LastWatchedModel } from '../model/last-watched.model';
 
 @Injectable({
@@ -14,7 +14,6 @@ export class LastWatchedService {
   }
 
   public load(): void {
-    console.log('load');
     // @ts-ignore
     this.lastWatched = JSON.parse(localStorage.getItem('lastWatched')) ?? [];
     this.lastWatchedSubject$.next(this.lastWatched ?? []);

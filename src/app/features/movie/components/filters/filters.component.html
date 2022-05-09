@@ -1,0 +1,43 @@
+<ng-container *ngIf="data | async as data;else loading">
+  <div class="flex justify-start gap-3 flex-col">
+    <form class="example-form">
+      <mat-form-field class="w-full" appearance="fill" [formGroup]="formGroup">
+        <mat-label>Film / Series / Game / Episode</mat-label>
+        <input
+          [formControlName]="MOVIE_ENUM.name"
+          id="name"
+          matInput placeholder="name" value="name">
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill" [formGroup]="formGroup">
+        <mat-label>Year</mat-label>
+        <input
+          [formControlName]="MOVIE_ENUM.year"
+          id="year"
+          matInput placeholder="year" value="year">
+      </mat-form-field>
+    </form>
+    <mat-form-field appearance="fill" [formGroup]="formGroup">
+      <mat-label>Typ</mat-label>
+      <mat-select
+        [formControlName]="MOVIE_ENUM.type"
+        (valueChange)="valueChangeHandler($event)">
+        <mat-option *ngFor="let option of data"
+                    id="{{option.value}}"
+                    [value]="option.value">
+          {{ option.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="button"
+            (click)="cleanClicked()"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-4 mb-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+      Clean
+    </button>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <div class="flex items-center justify-center">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+

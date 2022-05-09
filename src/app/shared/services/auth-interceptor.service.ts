@@ -10,7 +10,6 @@ export class AuthInterceptorService implements HttpInterceptor {
     const authReq = req.clone({
       url: req.url + '&apikey=bf5769f2'
     });
-    console.log(authReq.url);
     return next.handle(authReq);
   }
 }
