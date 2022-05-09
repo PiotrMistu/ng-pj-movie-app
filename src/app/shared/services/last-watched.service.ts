@@ -16,7 +16,7 @@ export class LastWatchedService {
   public load(): void {
     // @ts-ignore
     this.lastWatched = JSON.parse(localStorage.getItem('lastWatched')) ?? [];
-    this.lastWatchedSubject$.next(this.lastWatched ?? []);
+    this.lastWatchedSubject$.next([...this.lastWatched].reverse() ?? []);
   }
 
   public lastWatchedAdd(item: LastWatchedModel): void {
@@ -24,7 +24,7 @@ export class LastWatchedService {
       this.lastWatched.push(item);
     }
     localStorage.setItem('lastWatched', JSON.stringify(this.getLastThree()));
-    this.lastWatchedSubject$.next(this.getLastThree());
+    this.lastWatchedSubject$.next([...this.getLastThree()].reverse());
   }
 
   public getLastThree(): LastWatchedModel[] {

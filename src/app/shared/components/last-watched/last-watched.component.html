@@ -4,7 +4,7 @@
   </div>
   <div class="flow-root">
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-      <ng-container *ngFor="let item of (lastWatched.lastWatched$ | async)?.reverse()">
+      <ng-container *ngFor="let item of (lastWatched.lastWatched$ | async)">
         <li class="p-3 sm:py-4 hover:bg-sky-500 hover:ring-sky-500 cursor-pointer" (click)="clickRow(item)">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
