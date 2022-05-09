@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MovieRepoService } from '../repository/movie-repo.service';
 import { BehaviorSubject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Movies } from '../../models/interfaces/movies-list.interface';
-import { FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DropDownOptionModel } from '../../../shared/model/dropDown.model';
 
 @Injectable()
@@ -23,10 +23,6 @@ export class MoviesService {
   });
 
   constructor(private moviesRepo: MovieRepoService) {
-  }
-
-  public initFilms(): void {
-
   }
 
   public init(): void {
