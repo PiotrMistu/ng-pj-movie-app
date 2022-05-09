@@ -15,9 +15,9 @@ export class MovieDetailsService {
   }
 
   public init(movieId: string): void {
-    this.movieRepo.getMovie(movieId).subscribe(r => {
-      this.lastWatchedService.lastWatchedAdd(new LastWatchedModel(r.Title, r?.Poster ?? '', r?.imdbID ?? ''));
-      this.movieSubject$.next(r);
+    this.movieRepo.getMovie(movieId).subscribe(movie => {
+      this.lastWatchedService.lastWatchedAdd(new LastWatchedModel(movie.Title, movie?.Poster ?? '', movie?.imdbID ?? ''));
+      this.movieSubject$.next(movie);
     });
   }
 }

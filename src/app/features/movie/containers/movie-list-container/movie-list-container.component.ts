@@ -32,6 +32,6 @@ export class MovieListContainerComponent implements OnInit {
   }
 
   public cleanHandler(): void {
-    this.moviesService.formGroup.reset();
+    this.moviesService.resetFilters();
   }
 }

@@ -9,7 +9,7 @@ export interface Movie {
 export interface Movies {
   Search: Movie[];
   totalResults: string;
-  Response: string;
+  Response: boolean;
 }
 
 
